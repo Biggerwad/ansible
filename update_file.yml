@@ -1,0 +1,18 @@
+---
+- name: Add a string to a file
+  hosts: localhost
+  tasks:
+    - name: Append a string to a file
+      ansible.builtin.lineinfile:
+        path: ./file.txt 
+        line: "This is the string I want to add"
+      become: yes
+
+- name: Add a file to a directory
+  hosts: localhost
+  tasks:
+    - name: Copy a file to a directory
+      ansible.builtin.copy:
+        src: ./file.txt 
+        dest: ./dest  
+      become: yes
